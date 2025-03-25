@@ -1,0 +1,9 @@
+name = "binance-proxy"
+type = "javascript"
+
+account_id = "patient-bush-441c"
+workers_dev = true
+compatibility_date = "2025-03-26"
+
+[build]
+upload.format = "modules"
