@@ -1,0 +1,21 @@
+name: Deploy Worker to Cloudflare
+
+on:
+  push:
+    branches:
+      - main  # Lub inna główna gałąź repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Wrangler
+        run: |
+          npm install -g wrangler
+      - name: Deploy to Cloudflare Workers
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          wrangler deploy
